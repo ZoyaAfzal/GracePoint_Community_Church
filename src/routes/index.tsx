@@ -122,29 +122,6 @@ function Home() {
     <>
       <HeroCarousel />
 
-      {/* Welcome strip */}
-      <section className="border-b border-border bg-background py-16">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <StaggerGroup className="grid gap-6 md:grid-cols-3">
-            {welcomeCards.map(({ icon: Icon, title, lines }) => (
-              <StaggerItem key={title}>
-                <div className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 transition hover:-translate-y-1 hover:shadow-xl">
-                  <div className="grid size-12 place-items-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
-                    <Icon className="size-6" />
-                  </div>
-                  <h3 className="mt-5 font-display text-xl font-bold">{title}</h3>
-                  {lines.map((l) => (
-                    <p key={l} className="mt-1 text-muted-foreground">
-                      {l}
-                    </p>
-                  ))}
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerGroup>
-        </div>
-      </section>
-
       {/* About teaser */}
       <section className="py-24">
         <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-2 lg:items-center lg:px-8">
