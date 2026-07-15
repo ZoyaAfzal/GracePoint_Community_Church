@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Youtube, Facebook, Music2, Flame, ArrowRight } from "lucide-react";
+import { Instagram, Youtube, Facebook, Music2, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
 export function Footer() {
@@ -11,12 +11,11 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 lg:grid-cols-4 lg:px-8">
         <div>
           <Link to="/" className="flex items-center gap-2">
-            <span className="grid size-9 place-items-center rounded-xl bg-primary">
-              <Flame className="size-5 text-primary-foreground" strokeWidth={2.5} />
-            </span>
-            <span className="font-display text-xl font-bold">
-              Grace<span className="text-primary">Point</span>
-            </span>
+            <img
+              src="/GracePoint Community Church - Logo design.png"
+              alt="GracePoint Community Church"
+              className="h-10 w-auto"
+            />
           </Link>
           <p className="mt-4 text-sm leading-relaxed text-white/70">
             A modern community pursuing Jesus together. Everyone is welcome   bring

@@ -164,3 +164,11 @@
 @utility animate-shake {
   animation: shake 0.3s ease-in-out;
 }
+
+@utility hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

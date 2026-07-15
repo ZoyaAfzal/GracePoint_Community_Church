@@ -255,7 +255,7 @@ function Home() {
             </Link>
           </div>
 
-          <div className="mt-10 -mx-5 overflow-x-auto pb-4 lg:mx-0">
+          <div className="mt-10 -mx-5 overflow-x-auto hide-scrollbar pb-4 lg:mx-0">
             <StaggerGroup className="flex gap-6 px-5 lg:px-0">
               {events.map((e) => (
                 <StaggerItem

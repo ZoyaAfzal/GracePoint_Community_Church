@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, Flame } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV = [
@@ -28,25 +28,19 @@ export function Navbar() {
 
   useEffect(() => setOpen(false), [pathname]);
 
-  const solid = scrolled || !onHome;
-
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        solid
-          ? "bg-[var(--charcoal)]/95 backdrop-blur-md shadow-[0_1px_0_rgba(255,255,255,0.06)]"
-          : "bg-transparent",
+        "fixed inset-x-0 top-0 z-50 transition-all duration-300 bg-white shadow-sm",
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-        <Link to="/" className="flex items-center gap-2 text-white">
-          <span className="grid size-9 place-items-center rounded-xl bg-primary">
-            <Flame className="size-5 text-primary-foreground" strokeWidth={2.5} />
-          </span>
-          <span className="font-display text-xl font-bold tracking-tight">
-            Grace<span className="text-primary">Point</span>
-          </span>
+        <Link to="/" className="flex items-center gap-2">
+          <img
+            src="/GracePoint Community Church - Logo design.png"
+            alt="GracePoint Community Church"
+            className="h-10 w-auto"
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
@@ -55,7 +49,7 @@ export function Navbar() {
               key={item.to}
               to={item.to}
               data-active={pathname === item.to}
-              className="nav-underline text-sm font-medium text-white/90 hover:text-white"
+              className="nav-underline text-sm font-medium text-gray-700 hover:text-gray-900"
             >
               {item.label}
             </Link>
@@ -74,7 +68,7 @@ export function Navbar() {
         <button
           aria-label="Open menu"
           onClick={() => setOpen(true)}
-          className="grid size-10 place-items-center rounded-full text-white lg:hidden"
+          className="grid size-10 place-items-center rounded-full text-gray-700 lg:hidden"
         >
           <Menu className="size-6" />
         </button>
@@ -100,9 +94,11 @@ export function Navbar() {
               className="absolute right-0 top-0 h-full w-[86%] max-w-sm bg-[var(--charcoal)] p-6 text-white"
             >
               <div className="flex items-center justify-between">
-                <span className="font-display text-lg font-bold">
-                  Grace<span className="text-primary">Point</span>
-                </span>
+                <img
+                  src="/GracePoint Community Church - Logo design.png"
+                  alt="GracePoint Community Church"
+                  className="h-8 w-auto"
+                />
                 <button
                   aria-label="Close menu"
                   onClick={() => setOpen(false)}
