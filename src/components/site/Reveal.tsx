@@ -79,20 +79,28 @@ export function PageHeader({
   title,
   subtitle,
   image,
+  noDark,
+  noBlue,
 }: {
   eyebrow: string;
   title: string;
   subtitle?: string;
   image: string;
+  noDark?: boolean;
+  noBlue?: boolean;
 }) {
   return (
-    <section className="relative isolate overflow-hidden bg-[var(--charcoal)] pt-28">
+    <section className={`relative isolate overflow-hidden pt-28 ${noBlue ? "bg-black" : "bg-[var(--charcoal)]"}`}>
       <img
         src={image}
         alt=""
-        className="absolute inset-0 h-full w-full object-cover opacity-40"
+        className={`absolute inset-0 h-full w-full object-cover ${noDark ? "opacity-100 object-[center_65%]" : "opacity-40"}`}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[var(--charcoal)]/60 via-[var(--charcoal)]/70 to-[var(--charcoal)]" />
+      {noDark ? (
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/40" />
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--charcoal)]/60 via-[var(--charcoal)]/70 to-[var(--charcoal)]" />
+      )}
       <div className="relative mx-auto max-w-7xl px-5 py-24 text-white lg:px-8 lg:py-32">
         <motion.p
           initial={{ opacity: 0, y: 12 }}

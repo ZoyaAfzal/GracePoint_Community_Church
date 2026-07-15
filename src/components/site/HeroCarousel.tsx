@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Link } from "@tanstack/react-router";
-import { ChevronLeft, ChevronRight, PlayCircle } from "lucide-react";
 
 type Slide = {
   image: string;
   eyebrow: string;
   headline: string;
   subtext: string;
+  objectPosition?: string;
+  darkOverlay?: string;
 };
 
 const SLIDES: Slide[] = [
@@ -20,28 +21,28 @@ const SLIDES: Slide[] = [
       "Bring your questions, your doubts, your friends. There's a seat with your name on it this Sunday.",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=2000&q=80",
+    image: "church2.jpg",
     eyebrow: "Sundays at GracePoint",
     headline: "Real people. Real hope. Real Jesus.",
     subtext:
       "Two services every Sunday at 9AM & 11AM. Kids programs, live worship, and a message worth showing up for.",
+    objectPosition: "center 30%",
+    darkOverlay: "bg-gradient-to-t from-black/70 via-black/30 to-transparent",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=2000&q=80",
+    image: "church.jpg",
     eyebrow: "Built for community",
     headline: "You weren't made to do life alone.",
     subtext:
-      "Small groups, student nights, and serve teams — real belonging starts here.",
+      "Small groups, student nights, and serve teams   real belonging starts here.",
+    darkOverlay: "bg-gradient-to-t from-black/85 via-black/50 to-black/20",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=2000&q=80",
-    eyebrow: "Serve the city",
-    headline: "Love loud. Serve local.",
+    image: "premium_photo-1678599058696-3f9c42bea366.avif",
+    eyebrow: "Grow in faith",
+    headline: "Deep roots. Strong community.",
     subtext:
-      "From food drives to student mentoring — join us in the work of loving our neighbors.",
+      "Join us as we explore Scripture together and grow in our walk with Jesus.",
   },
 ];
 
@@ -62,9 +63,6 @@ export function HeroCarousel() {
       if (timerRef.current) window.clearInterval(timerRef.current);
     };
   }, [paused]);
-
-  const go = (dir: 1 | -1) =>
-    setCurrent((c) => (c + dir + SLIDES.length) % SLIDES.length);
 
   const slide = SLIDES[current];
 
@@ -88,12 +86,15 @@ export function HeroCarousel() {
             src={slide.image}
             alt=""
             className="absolute inset-0 h-full w-full object-cover"
+            style={{ objectPosition: slide.objectPosition }}
             initial={{ scale: 1 }}
             animate={{ scale: 1.12 }}
             transition={{ duration: DURATION / 1000 + 1.5, ease: "linear" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
+          {slide.darkOverlay && (
+            <div className={`absolute inset-0 ${slide.darkOverlay}`} />
+          )}
+
         </motion.div>
       </AnimatePresence>
 
@@ -121,12 +122,6 @@ export function HeroCarousel() {
                 className="inline-flex items-center rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-xl shadow-primary/30 transition hover:bg-[var(--orange-brand-hover)] hover:scale-105 active:scale-95"
               >
                 Plan a Visit
-              </Link>
-              <Link
-                to="/media-events"
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10"
-              >
-                <PlayCircle className="size-4" /> Watch Latest Sermon
               </Link>
             </div>
           </motion.div>
@@ -159,20 +154,6 @@ export function HeroCarousel() {
         </div>
       </div>
 
-      <button
-        onClick={() => go(-1)}
-        aria-label="Previous slide"
-        className="absolute left-4 top-1/2 hidden -translate-y-1/2 rounded-full border border-white/20 bg-black/30 p-3 text-white opacity-0 backdrop-blur transition hover:bg-black/50 group-hover:opacity-100 lg:block lg:opacity-70 lg:hover:opacity-100"
-      >
-        <ChevronLeft className="size-5" />
-      </button>
-      <button
-        onClick={() => go(1)}
-        aria-label="Next slide"
-        className="absolute right-4 top-1/2 hidden -translate-y-1/2 rounded-full border border-white/20 bg-black/30 p-3 text-white backdrop-blur transition hover:bg-black/50 lg:block lg:opacity-70 lg:hover:opacity-100"
-      >
-        <ChevronRight className="size-5" />
-      </button>
     </section>
   );
 }

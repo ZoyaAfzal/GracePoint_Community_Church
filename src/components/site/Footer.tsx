@@ -19,7 +19,7 @@ export function Footer() {
             </span>
           </Link>
           <p className="mt-4 text-sm leading-relaxed text-white/70">
-            A modern community pursuing Jesus together. Everyone is welcome — bring
+            A modern community pursuing Jesus together. Everyone is welcome   bring
             questions, come as you are.
           </p>
           <address className="mt-4 not-italic text-sm text-white/70">
@@ -64,7 +64,7 @@ export function Footer() {
               },
               {
                 title: "The Weight of Grace",
-                img: "https://images.unsplash.com/photo-1520637836862-4d197d17c93a?auto=format&fit=crop&w=200&q=60",
+                img: "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=200&q=60",
               },
             ].map((s) => (
               <li key={s.title} className="flex items-center gap-3">
@@ -113,7 +113,7 @@ export function Footer() {
             </button>
           </form>
           {subscribed && (
-            <p className="mt-2 text-xs text-primary">Thanks — you're on the list.</p>
+            <p className="mt-2 text-xs text-primary">Thanks   you're on the list.</p>
           )}
           <div className="mt-6 flex gap-3">
             {[

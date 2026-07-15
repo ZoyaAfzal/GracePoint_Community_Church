@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { Heart, Users, HandHeart, Sprout, Instagram, Youtube, ArrowRight } from "lucide-react";
+import { Heart, Users, HandHeart, Sprout, ArrowRight } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -12,11 +12,11 @@ import { PageHeader, Reveal, StaggerGroup, StaggerItem } from "@/components/site
 export const Route = createFileRoute("/our-church")({
   head: () => ({
     meta: [
-      { title: "Our Church — GracePoint Community Church" },
+      { title: "Our Church   GracePoint Community Church" },
       {
         name: "description",
         content:
-          "Meet the pastors, learn what we believe, and see the story of GracePoint Community Church — a modern Denver church family.",
+          "Meet the pastors, learn what we believe, and see the story of GracePoint Community Church   a modern Denver church family.",
       },
     ],
   }),
@@ -38,38 +38,11 @@ const values = [
   { Icon: Sprout, title: "Growth", text: "We're all learners. Curiosity welcomed." },
 ];
 
-const leaders = [
-  {
-    name: "Pastor Jordan Rivera",
-    role: "Lead Pastor",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=70",
-    bio: "Jordan planted GracePoint in 2011 and loves espresso, mountain trails, and Ephesians.",
-  },
-  {
-    name: "Pastor Maya Chen",
-    role: "Teaching Pastor",
-    img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=70",
-    bio: "Maya teaches, writes, and disciples students. Ask her about theology or tacos.",
-  },
-  {
-    name: "Pastor Elijah Ford",
-    role: "Outreach & Justice",
-    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=70",
-    bio: "Eli leads our city partnerships and dreams about a more generous church.",
-  },
-  {
-    name: "Sarah Okafor",
-    role: "Worship Director",
-    img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=70",
-    bio: "Sarah shapes our worship gatherings and mentors our musicians.",
-  },
-];
-
 const beliefs = [
   { q: "The Bible", a: "We believe Scripture is inspired, authoritative, and speaks to every part of life today." },
   { q: "God", a: "One God, eternally existing as Father, Son, and Holy Spirit." },
   { q: "Jesus", a: "Fully God, fully human, crucified for our sin, risen, and coming again." },
-  { q: "Salvation", a: "By grace alone through faith in Jesus alone — a gift, never earned." },
+  { q: "Salvation", a: "By grace alone through faith in Jesus alone   a gift, never earned." },
   { q: "The Church", a: "A diverse, worldwide family called to love God and love people." },
 ];
 
@@ -79,8 +52,10 @@ function OurChurch() {
       <PageHeader
         eyebrow="Our Church"
         title="A family, not a building."
-        subtitle="We're a diverse community pursuing Jesus in the heart of Denver — and everyone is invited."
-        image="https://images.unsplash.com/photo-1520637836862-4d197d17c93a?auto=format&fit=crop&w=2000&q=80"
+        subtitle="We're a diverse community pursuing Jesus in the heart of Denver and everyone is invited."
+        image="premium_photo-1723701869394-f616860b7d48.avif"
+        noDark
+        noBlue
       />
 
       {/* Story / Timeline */}
@@ -126,7 +101,7 @@ function OurChurch() {
       </section>
 
       {/* Beliefs */}
-      <section className="bg-[var(--soft-grey)] py-24">
+      <section className="bg-beige py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1fr_1.4fr] lg:px-8">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
@@ -137,7 +112,7 @@ function OurChurch() {
             </h2>
             <p className="mt-5 text-muted-foreground">
               You're welcome here even if you're not sure what you believe. Bring your
-              questions — we love a good conversation.
+              questions - we love a good conversation.
             </p>
           </Reveal>
           <Reveal delay={0.1}>
@@ -154,48 +129,6 @@ function OurChurch() {
               ))}
             </Accordion>
           </Reveal>
-        </div>
-      </section>
-
-      {/* Leaders */}
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-              Leadership
-            </p>
-            <h2 className="mt-3 font-display text-4xl font-bold sm:text-5xl">
-              Meet the team.
-            </h2>
-          </Reveal>
-          <StaggerGroup className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {leaders.map((p) => (
-              <StaggerItem key={p.name}>
-                <article className="group overflow-hidden rounded-2xl bg-card">
-                  <div className="relative aspect-[3/4] overflow-hidden">
-                    <img
-                      src={p.img}
-                      alt={p.name}
-                      className="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
-                    />
-                    <div className="absolute inset-x-0 bottom-0 flex translate-y-full gap-2 bg-gradient-to-t from-black/80 to-transparent p-4 transition-transform duration-500 group-hover:translate-y-0">
-                      <a href="#" aria-label={`${p.name} on Instagram`} className="grid size-9 place-items-center rounded-full bg-white/10 text-white backdrop-blur hover:bg-primary">
-                        <Instagram className="size-4" />
-                      </a>
-                      <a href="#" aria-label={`${p.name} on YouTube`} className="grid size-9 place-items-center rounded-full bg-white/10 text-white backdrop-blur hover:bg-primary">
-                        <Youtube className="size-4" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-display text-lg font-bold">{p.name}</h3>
-                    <p className="text-sm text-primary">{p.role}</p>
-                    <p className="mt-2 text-sm text-muted-foreground">{p.bio}</p>
-                  </div>
-                </article>
-              </StaggerItem>
-            ))}
-          </StaggerGroup>
         </div>
       </section>
 

@@ -35,11 +35,11 @@ import { PageHeader, Reveal, StaggerGroup, StaggerItem } from "@/components/site
 export const Route = createFileRoute("/get-involved")({
   head: () => ({
     meta: [
-      { title: "Get Involved — GracePoint Community Church" },
+      { title: "Get Involved   GracePoint Community Church" },
       {
         name: "description",
         content:
-          "Volunteer, join a small group, or give — there's a place for you to belong and serve at GracePoint Community Church.",
+          "Volunteer, join a small group, or give   there's a place for you to belong and serve at GracePoint Community Church.",
       },
     ],
   }),
@@ -50,16 +50,9 @@ const ministries = [
   { Icon: Music, title: "Worship Team", text: "Musicians, vocalists, and creatives leading Sunday worship." },
   { Icon: Baby, title: "Kids Ministry", text: "Love on kids birth–5th grade in a safe, fun environment." },
   { Icon: Coffee, title: "Hospitality", text: "Welcome guests, brew coffee, make people feel at home." },
-  { Icon: Video, title: "Media & Tech", text: "Cameras, sound, streaming, design — build behind the scenes." },
+  { Icon: Video, title: "Media & Tech", text: "Cameras, sound, streaming, design   build behind the scenes." },
   { Icon: HandHeart, title: "Outreach", text: "Serve the city through partnerships with local nonprofits." },
   { Icon: Users, title: "Youth Ministry", text: "Mentor middle and high schoolers on Wednesday nights." },
-];
-
-const groups = [
-  { name: "Young Adults", day: "Tuesdays · 7PM", img: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=70" },
-  { name: "Men's Group", day: "Saturdays · 7AM", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=70" },
-  { name: "Women's Group", day: "Wednesdays · 6:30PM", img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=70" },
-  { name: "Families", day: "Sundays · 4PM", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=70" },
 ];
 
 const volunteerSchema = z.object({
@@ -82,6 +75,7 @@ function GetInvolved() {
         title="There's a place for you here."
         subtitle="Serve a team, join a group, or step into something new. GracePoint runs on volunteers who love people."
         image="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=2000&q=80"
+        noDark
       />
 
       {/* Volunteer */}
@@ -127,41 +121,6 @@ function GetInvolved() {
         </div>
       </section>
 
-      {/* Small groups */}
-      <section className="bg-[var(--soft-grey)] py-24">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-              Small Groups
-            </p>
-            <h2 className="mt-3 font-display text-4xl font-bold sm:text-5xl">
-              Do life with people who know your name.
-            </h2>
-          </Reveal>
-          <StaggerGroup className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {groups.map((g) => (
-              <StaggerItem key={g.name}>
-                <article className="group overflow-hidden rounded-2xl bg-background transition hover:-translate-y-1 hover:shadow-xl">
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <img
-                      src={g.img}
-                      alt={g.name}
-                      className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
-                    />
-                    <span className="absolute left-3 top-3 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
-                      {g.day}
-                    </span>
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-display text-xl font-bold">{g.name}</h3>
-                  </div>
-                </article>
-              </StaggerItem>
-            ))}
-          </StaggerGroup>
-        </div>
-      </section>
-
       {/* Give band */}
       <section className="bg-[var(--charcoal)] py-24 text-white">
         <Reveal>
@@ -173,7 +132,7 @@ function GetInvolved() {
               Fuel what God is doing at GracePoint.
             </h2>
             <p className="mt-4 text-lg text-white/70">
-              Every gift plants seeds for our city — kids programs, outreach partners,
+              Every gift plants seeds for our city   kids programs, outreach partners,
               worship, and beyond.
             </p>
             <a

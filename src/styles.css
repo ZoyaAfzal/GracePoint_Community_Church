@@ -34,6 +34,9 @@
   --color-charcoal-soft: var(--charcoal-soft);
   --color-orange-brand: var(--orange-brand);
   --color-orange-brand-hover: var(--orange-brand-hover);
+  --color-deep-green: var(--deep-green);
+  --color-deep-green-hover: var(--deep-green-hover);
+  --color-beige: var(--beige);
   --color-soft-grey: var(--soft-grey);
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Sora", "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -42,17 +45,15 @@
 :root {
   --radius: 0.75rem;
 
-  /* Brand palette (primary) */
+  /* Brand palette */
   --charcoal: oklch(0.22 0.005 285);
   --charcoal-soft: oklch(0.28 0.006 285);
   --orange-brand: oklch(0.68 0.19 42);
   --orange-brand-hover: oklch(0.62 0.2 40);
+  --deep-green: oklch(0.35 0.06 155);
+  --deep-green-hover: oklch(0.30 0.07 155);
+  --beige: oklch(0.92 0.03 85);
   --soft-grey: oklch(0.965 0.003 90);
-
-  /* Alt palette (swap-ready)
-   * --deep-green: oklch(0.35 0.06 155);
-   * --beige: oklch(0.92 0.03 85);
-   */
 
   --background: oklch(1 0 0);
   --foreground: var(--charcoal);
@@ -62,11 +63,11 @@
   --popover-foreground: var(--charcoal);
   --primary: var(--orange-brand);
   --primary-foreground: oklch(1 0 0);
-  --secondary: var(--soft-grey);
+  --secondary: var(--beige);
   --secondary-foreground: var(--charcoal);
-  --muted: var(--soft-grey);
+  --muted: var(--beige);
   --muted-foreground: oklch(0.5 0.01 285);
-  --accent: var(--soft-grey);
+  --accent: var(--beige);
   --accent-foreground: var(--charcoal);
   --destructive: oklch(0.6 0.24 27);
   --destructive-foreground: oklch(1 0 0);

@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { createFileRoute, useSearch } from "@tanstack/react-router";
+import { useMemo, useState, useEffect } from "react";
 import { motion } from "motion/react";
 import {
   Search,
@@ -32,7 +32,7 @@ import { PageHeader, Reveal, StaggerGroup, StaggerItem } from "@/components/site
 export const Route = createFileRoute("/media-events")({
   head: () => ({
     meta: [
-      { title: "Media & Events — GracePoint Community Church" },
+      { title: "Media & Events   GracePoint Community Church" },
       {
         name: "description",
         content:
@@ -74,8 +74,8 @@ const EVENTS: EventItem[] = [
     title: "Kids Kickoff Weekend",
     date: new Date(2026, 8, 6, 10, 0),
     location: "GracePoint Kids Wing",
-    description: "New year of Kids Ministry launches — inflatables, snacks, all the fun.",
-    img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=70",
+    description: "New year of Kids Ministry launches   inflatables, snacks, all the fun.",
+    img: "istockphoto-656916306-612x612.webp",
   },
   {
     id: "young-adults",
@@ -91,16 +91,16 @@ const EVENTS: EventItem[] = [
     date: new Date(2026, 8, 27, 11, 0),
     location: "The Commons",
     description: "Everything you want to know about GracePoint over coffee and brunch.",
-    img: "https://images.unsplash.com/photo-1520637836862-4d197d17c93a?auto=format&fit=crop&w=1200&q=70",
+    img: "pexels-bobbydimas-38232287.jpg",
   },
 ];
 
 const SERMONS = [
-  { title: "Anchored in Hope", speaker: "Pastor Jordan Rivera", date: "Jul 6, 2026", series: "Storms", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=900&q=70" },
-  { title: "The Weight of Grace", speaker: "Pastor Maya Chen", date: "Jun 29, 2026", series: "Ephesians", img: "https://images.unsplash.com/photo-1520637836862-4d197d17c93a?auto=format&fit=crop&w=900&q=70" },
+  { title: "Anchored in Hope", speaker: "Pastor Jordan Rivera", date: "Jul 6, 2026", series: "Storms", img: "https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=900&q=70" },
+  { title: "The Weight of Grace", speaker: "Pastor Maya Chen", date: "Jun 29, 2026", series: "Ephesians", img: "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=900&q=70" },
   { title: "Neighbors, Not Strangers", speaker: "Pastor Elijah Ford", date: "Jun 22, 2026", series: "Storms", img: "https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=900&q=70" },
   { title: "The Table Where Everyone Fits", speaker: "Pastor Maya Chen", date: "Jun 15, 2026", series: "Ephesians", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=70" },
-  { title: "Prayer That Actually Works", speaker: "Pastor Jordan Rivera", date: "Jun 8, 2026", series: "Practices", img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=900&q=70" },
+  { title: "Prayer That Actually Works", speaker: "Pastor Jordan Rivera", date: "Jun 8, 2026", series: "Practices", img: "https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=900&q=70" },
   { title: "Rest as Resistance", speaker: "Sarah Okafor", date: "Jun 1, 2026", series: "Practices", img: "https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=900&q=70" },
 ];
 
@@ -110,6 +110,19 @@ function MediaEvents() {
   const [view, setView] = useState<"list" | "grid">("list");
   const [date, setDate] = useState<Date | undefined>();
   const [series, setSeries] = useState("all");
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const timer = setTimeout(() => {
+        const el = document.getElementById(hash.slice(1));
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   const filteredEvents = useMemo(() => {
     return EVENTS.filter((e) => {
@@ -142,7 +155,8 @@ function MediaEvents() {
         eyebrow="Media & Events"
         title="What's happening at GracePoint."
         subtitle="Upcoming gatherings, latest sermons, and everything in between."
-        image="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=2000&q=80"
+        image="premium_photo-1769980045169-55ecbf648897.avif"
+        noDark
       />
 
       {/* Filter bar */}
@@ -220,7 +234,7 @@ function MediaEvents() {
 
       {/* Events */}
       {category !== "sermons" && (
-        <section className="py-16">
+        <section className="py-24">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             {grouped.length === 0 ? (
               <p className="text-center text-muted-foreground">
@@ -236,7 +250,7 @@ function MediaEvents() {
                     {list.map((e) =>
                       view === "grid" ? (
                         <StaggerItem key={e.id}>
-                          <article className="group h-full overflow-hidden rounded-2xl border border-border bg-card transition hover:-translate-y-1 hover:border-primary hover:shadow-xl">
+                          <article id={e.id} className="group h-full overflow-hidden rounded-2xl border border-border bg-card transition hover:-translate-y-1 hover:border-primary hover:shadow-xl scroll-mt-24">
                             <div className="aspect-[4/3] overflow-hidden">
                               <img src={e.img} alt={e.title} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
                             </div>
@@ -255,7 +269,7 @@ function MediaEvents() {
                         </StaggerItem>
                       ) : (
                         <StaggerItem key={e.id}>
-                          <article className="group grid gap-6 rounded-2xl border border-border bg-card p-4 transition hover:border-primary hover:shadow-lg sm:grid-cols-[220px_1fr] sm:p-6">
+                          <article id={e.id} className="group grid gap-6 rounded-2xl border border-border bg-card p-4 transition hover:border-primary hover:shadow-lg sm:grid-cols-[220px_1fr] sm:p-6 scroll-mt-24">
                             <div className="aspect-[4/3] overflow-hidden rounded-xl">
                               <img src={e.img} alt={e.title} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
                             </div>
@@ -303,7 +317,7 @@ function MediaEvents() {
 
       {/* Sermons */}
       {category !== "events" && (
-        <section className="bg-[var(--soft-grey)] py-20">
+        <section className="bg-beige py-24">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>

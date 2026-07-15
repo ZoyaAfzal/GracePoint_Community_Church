@@ -28,7 +28,7 @@ import { FormField } from "./get-involved";
 export const Route = createFileRoute("/connect")({
   head: () => ({
     meta: [
-      { title: "Connect — Plan a Visit or Submit a Prayer Request" },
+      { title: "Connect Plan a Visit or Submit a Prayer Request" },
       {
         name: "description",
         content:
@@ -59,11 +59,11 @@ const prayerSchema = z.object({
 type PrayerForm = z.infer<typeof prayerSchema>;
 
 const faqs = [
-  { q: "What should I wear?", a: "Whatever you want — jeans and a tee are perfectly normal here." },
+  { q: "What should I wear?", a: "Whatever you want   jeans and a tee are perfectly normal here." },
   { q: "What about my kids?", a: "GracePoint Kids runs both services for birth–5th grade. Safe, fun, faith-forming." },
-  { q: "Where do I park?", a: "Free parking in the Riverfront garage right next door — guest spots up front." },
+  { q: "Where do I park?", a: "Free parking in the Riverfront garage right next door   guest spots up front." },
   { q: "How long is the service?", a: "About 75 minutes: worship, a message, and a moment for prayer." },
-  { q: "Am I expected to give?", a: "Not even a little. Giving is for regular attenders — guests, please just come and enjoy." },
+  { q: "Am I expected to give?", a: "Not even a little. Giving is for regular attenders   guests, please just come and enjoy." },
 ];
 
 function Connect() {
@@ -72,15 +72,16 @@ function Connect() {
       <PageHeader
         eyebrow="Connect"
         title="We can't wait to meet you."
-        subtitle="Plan a visit, share a prayer request, or find your way here — we're glad you're here."
+        subtitle="Plan a visit, share a prayer request, or find your way here, we're glad you're here."
         image="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=2000&q=80"
+        noDark
       />
 
-      <section className="py-20">
+      <section className="py-24">
         <div className="mx-auto max-w-4xl px-5 lg:px-8">
           <Reveal>
             <Tabs defaultValue="visit" className="w-full">
-              <TabsList className="mx-auto mb-8 grid w-full max-w-md grid-cols-2 rounded-full bg-[var(--soft-grey)] p-1.5">
+              <TabsList className="mx-auto mb-8 grid w-full max-w-md grid-cols-2 rounded-full bg-beige p-1.5">
                 <TabsTrigger value="visit" className="rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
                   Plan a Visit
                 </TabsTrigger>
@@ -100,7 +101,7 @@ function Connect() {
       </section>
 
       {/* Contact + Map */}
-      <section className="bg-[var(--soft-grey)] py-20">
+      <section className="bg-beige py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-2 lg:px-8">
           <Reveal>
             <div className="overflow-hidden rounded-3xl border border-border bg-background aspect-[4/3]">
@@ -297,7 +298,7 @@ function PrayerFormCard() {
             <FormField label="Your prayer request" error={errors.request?.message}>
               <Textarea rows={5} {...register("request")} placeholder="Share what's on your heart" />
             </FormField>
-            <label className="flex items-start gap-2 rounded-2xl border border-border bg-[var(--soft-grey)] p-4 text-sm">
+            <label className="flex items-start gap-2 rounded-2xl border border-border bg-beige p-4 text-sm">
               <Checkbox
                 className="mt-0.5"
                 checked={watch("keepPrivate")}
