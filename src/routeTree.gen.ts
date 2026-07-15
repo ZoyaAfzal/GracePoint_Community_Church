@@ -9,8 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as OurChurchRouteImport } from './routes/our-church'
+import { Route as MediaEventsRouteImport } from './routes/media-events'
+import { Route as GetInvolvedRouteImport } from './routes/get-involved'
+import { Route as ConnectRouteImport } from './routes/connect'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurChurchRoute = OurChurchRouteImport.update({
+  id: '/our-church',
+  path: '/our-church',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MediaEventsRoute = MediaEventsRouteImport.update({
+  id: '/media-events',
+  path: '/media-events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GetInvolvedRoute = GetInvolvedRouteImport.update({
+  id: '/get-involved',
+  path: '/get-involved',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConnectRoute = ConnectRouteImport.update({
+  id: '/connect',
+  path: '/connect',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +49,102 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/connect': typeof ConnectRoute
+  '/get-involved': typeof GetInvolvedRoute
+  '/media-events': typeof MediaEventsRoute
+  '/our-church': typeof OurChurchRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/connect': typeof ConnectRoute
+  '/get-involved': typeof GetInvolvedRoute
+  '/media-events': typeof MediaEventsRoute
+  '/our-church': typeof OurChurchRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/connect': typeof ConnectRoute
+  '/get-involved': typeof GetInvolvedRoute
+  '/media-events': typeof MediaEventsRoute
+  '/our-church': typeof OurChurchRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/connect'
+    | '/get-involved'
+    | '/media-events'
+    | '/our-church'
+    | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/connect'
+    | '/get-involved'
+    | '/media-events'
+    | '/our-church'
+    | '/sitemap.xml'
+  id:
+    | '__root__'
+    | '/'
+    | '/connect'
+    | '/get-involved'
+    | '/media-events'
+    | '/our-church'
+    | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ConnectRoute: typeof ConnectRoute
+  GetInvolvedRoute: typeof GetInvolvedRoute
+  MediaEventsRoute: typeof MediaEventsRoute
+  OurChurchRoute: typeof OurChurchRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-church': {
+      id: '/our-church'
+      path: '/our-church'
+      fullPath: '/our-church'
+      preLoaderRoute: typeof OurChurchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/media-events': {
+      id: '/media-events'
+      path: '/media-events'
+      fullPath: '/media-events'
+      preLoaderRoute: typeof MediaEventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/get-involved': {
+      id: '/get-involved'
+      path: '/get-involved'
+      fullPath: '/get-involved'
+      preLoaderRoute: typeof GetInvolvedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/connect': {
+      id: '/connect'
+      path: '/connect'
+      fullPath: '/connect'
+      preLoaderRoute: typeof ConnectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +157,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ConnectRoute: ConnectRoute,
+  GetInvolvedRoute: GetInvolvedRoute,
+  MediaEventsRoute: MediaEventsRoute,
+  OurChurchRoute: OurChurchRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
