@@ -94,12 +94,12 @@ export function PageHeader({
       <img
         src={image}
         alt=""
-        className={`absolute inset-0 h-full w-full object-cover ${noDark ? "opacity-100 object-[center_65%]" : "opacity-50"}`}
+        className={`absolute inset-0 h-full w-full object-cover ${noDark ? "opacity-100 object-[center_65%]" : "opacity-60"}`}
       />
       {noDark ? (
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/40" />
       ) : (
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--charcoal)]/30 via-[var(--charcoal)]/40 to-[var(--charcoal)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--charcoal)]/20 via-[var(--charcoal)]/30 to-[var(--charcoal)]" />
       )}
       <div className="relative mx-auto max-w-7xl px-5 py-24 text-white lg:px-8 lg:py-32">
         <motion.p

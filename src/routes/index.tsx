@@ -36,16 +36,6 @@ const welcomeCards = [
     title: "Service Times",
     lines: ["Sunday 9:00 AM & 11:00 AM", "Wednesday 7:00 PM"],
   },
-  {
-    icon: MapPin,
-    title: "Find Us",
-    lines: ["1420 Riverfront Ave", "Denver, CO 80202"],
-  },
-  {
-    icon: Phone,
-    title: "Get In Touch",
-    lines: ["(720) 555-0134", "hello@gracepoint.church"],
-  },
 ];
 
 const events = [
@@ -123,7 +113,7 @@ const igImages = [
   "https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=500&q=60",
   "pexels-kelly-24039432.jpg",
   "https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=500&q=60",
-  "pexels-daniel-olivier-578240085-17557835.jpg",
+  "premium_photo-1678599058696-3f9c42bea366.avif",
   "pexels-zehra-gor-100261023-19327362.jpg",
 ];
 
@@ -159,16 +149,22 @@ function Home() {
       <section className="py-24">
         <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-2 lg:items-center lg:px-8">
           <Reveal>
-            <div className="relative">
-              <img
-                src="photo-1650852712430-c101a9e31ce5.avif"
-                alt="GracePoint congregation gathered together in worship"
-                className="aspect-[4/5] w-full rounded-3xl object-cover object-[center_65%]"
-              />
-              <div className="absolute -bottom-6 -right-6 hidden rounded-2xl bg-primary p-6 text-primary-foreground shadow-xl md:block">
+            <div className="relative group mx-auto max-w-md lg:max-w-lg">
+              <div className="overflow-hidden rounded-3xl relative">
+                <img
+                  src="photo-1650852712430-c101a9e31ce5.avif"
+                  alt="GracePoint congregation gathered together in worship"
+                  className="aspect-[4/5] w-full object-cover object-[center_65%] transition duration-700 group-hover:scale-110 saturate-[0.85] sepia-[0.1]"
+                />
+                <div className="absolute inset-0 bg-primary/0 transition duration-500 group-hover:bg-primary/20" />
+              </div>
+              <motion.div
+                whileHover={{ scale: 1.05, rotate: -2 }}
+                className="absolute -bottom-6 -right-6 hidden rounded-2xl bg-primary p-6 text-primary-foreground shadow-xl cursor-pointer md:block transition-shadow duration-300 hover:shadow-2xl hover:shadow-primary/30"
+              >
                 <p className="font-display text-4xl font-bold">15+</p>
                 <p className="text-sm">Years serving Denver</p>
-              </div>
+              </motion.div>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
@@ -185,7 +181,7 @@ function Home() {
             </p>
             <Link
               to="/our-church"
-              className="mt-8 inline-flex items-center gap-2 font-semibold text-primary hover:gap-3 transition-all"
+              className="mt-8 inline-flex items-center gap-2 rounded-full border border-primary px-6 py-3 font-semibold text-primary transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:gap-3 hover:shadow-lg hover:shadow-primary/20"
             >
               Learn more about us <ArrowRight className="size-4" />
             </Link>

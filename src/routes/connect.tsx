@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Check, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Check, Mail, Clock } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -122,16 +122,8 @@ function Connect() {
             </h2>
             <ul className="mt-8 space-y-4 text-lg">
               <li className="flex items-start gap-3">
-                <MapPin className="mt-1 size-5 text-primary" />
-                1420 Riverfront Ave, Denver, CO 80202
-              </li>
-              <li className="flex items-start gap-3">
                 <Clock className="mt-1 size-5 text-primary" />
                 Sundays 9:00 & 11:00 AM · Wed 7:00 PM
-              </li>
-              <li className="flex items-start gap-3">
-                <Phone className="mt-1 size-5 text-primary" />
-                (720) 555-0134
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="mt-1 size-5 text-primary" />

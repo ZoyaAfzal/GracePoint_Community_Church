@@ -21,13 +21,6 @@ export function Footer() {
             A modern community pursuing Jesus together. Everyone is welcome   bring
             questions, come as you are.
           </p>
-          <address className="mt-4 not-italic text-sm text-white/70">
-            1420 Riverfront Ave
-            <br />
-            Denver, CO 80202
-            <br />
-            (720) 555-0134
-          </address>
         </div>
 
         <div>
@@ -59,11 +52,11 @@ export function Footer() {
             {[
               {
                 title: "Anchored in Hope",
-                img: "pexels-daniel-olivier-578240085-17557835.jpg",
+                img: "premium_photo-1678599058696-3f9c42bea366.avif",
               },
               {
                 title: "The Weight of Grace",
-                img: "istockphoto-1754468293-612x612.jpg",
+                img: "premium_photo-1769980045169-55ecbf648897.avif",
               },
             ].map((s) => (
               <li key={s.title} className="flex items-center gap-3">
