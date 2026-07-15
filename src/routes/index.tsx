@@ -121,10 +121,10 @@ const testimonials = [
 const igImages = [
   "https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=500&q=60",
   "https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=500&q=60",
-  "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=500&q=60",
+  "pexels-kelly-24039432.jpg",
   "https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=500&q=60",
-  "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=60",
-  "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=500&q=60",
+  "pexels-daniel-olivier-578240085-17557835.jpg",
+  "pexels-zehra-gor-100261023-19327362.jpg",
 ];
 
 function Home() {
@@ -359,7 +359,7 @@ function Home() {
             {
               title: "Join a small group",
               text: "Do life with people who know your name.",
-              img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=70",
+              img: "photo-1644698101032-f8f0fc47457f.avif",
               img2: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=70",
               cta: "Find a group",
             },

@@ -39,7 +39,7 @@ export function Navbar() {
           <img
             src="/GracePoint Community Church - Logo design.png"
             alt="GracePoint Community Church"
-            className="h-10 w-auto"
+            className="h-12 w-auto"
           />
         </Link>
 
@@ -97,7 +97,7 @@ export function Navbar() {
                 <img
                   src="/GracePoint Community Church - Logo design.png"
                   alt="GracePoint Community Church"
-                  className="h-8 w-auto"
+                  className="h-10 w-auto"
                 />
                 <button
                   aria-label="Close menu"

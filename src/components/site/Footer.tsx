@@ -59,11 +59,11 @@ export function Footer() {
             {[
               {
                 title: "Anchored in Hope",
-                img: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=200&q=60",
+                img: "pexels-daniel-olivier-578240085-17557835.jpg",
               },
               {
                 title: "The Weight of Grace",
-                img: "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=200&q=60",
+                img: "istockphoto-1754468293-612x612.jpg",
               },
             ].map((s) => (
               <li key={s.title} className="flex items-center gap-3">

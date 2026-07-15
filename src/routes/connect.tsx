@@ -73,7 +73,7 @@ function Connect() {
         eyebrow="Connect"
         title="We can't wait to meet you."
         subtitle="Plan a visit, share a prayer request, or find your way here, we're glad you're here."
-        image="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=2000&q=80"
+        image="photo-1474814947326-d835369963a5.avif"
         noDark
       />
 

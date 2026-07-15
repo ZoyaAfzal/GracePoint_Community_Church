@@ -74,8 +74,7 @@ function GetInvolved() {
         eyebrow="Get Involved"
         title="There's a place for you here."
         subtitle="Serve a team, join a group, or step into something new. GracePoint runs on volunteers who love people."
-        image="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=2000&q=80"
-        noDark
+        image="photo-1765947382522-ca6d359af08c.avif"
       />
 
       {/* Volunteer */}
